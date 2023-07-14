@@ -17,7 +17,10 @@ namespace ASP.NET_Tutorial.Controllers
         {
             return View();
         }
-
+        public IActionResult Profesor()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();

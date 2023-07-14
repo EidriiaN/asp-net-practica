@@ -1,0 +1,156 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    <div>
+        <button id="studentsButton" type="button" class="btn btn-primary">Elevi</button>
+        <div id="studentsMenu" style="display: none;">
+            <table id="studentsList" class="students-table">
+                <thead>
+                    <tr>
+                        <th>Nume</th>
+                        <th>Prenume</th>
+                        <th>Grupa</th>
+                        <th>Nota AG</th>
+                        <th>Nota SGBD</th>
+                        <th>Nota ASUL</th>
+                        <th>Nota DAM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table rows will be dynamically generated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p></p>
+    <div>
+        <button id="materiiButton" type="button" class="btn btn-primary">Materii</button>
+        <div id="materiiMenu" style="display: none;">
+            <table id="materiiList" class="students-table">
+                <thead>
+                    <tr>
+                        <th>Nume</th>
+                        <th>Număr credite</th>
+                        <th>Formă de evaluare</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <style>
+        .students-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+
+
+            .students-table th,
+            .students-table td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+    </style>
+
+    <style>
+        .materii-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+
+
+            .materii-table th,
+            .materii-table td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#studentsButton').click(function () {
+                var studentData = [
+                    { nume: 'Dobrescu', prenume: 'Alexandra', grupa:'40318', notaAG:'10',notaSGBD:'10',notaASUL:'10',notaDAM:'9' },
+                ];
+
+                var table = $('<table>').addClass('students-table');
+                var tableHeader = $('<thead>').append('<tr><th>Nume</th><th>Prenume</th><th>Grupa</th><th>Nota AG</th><th>Nota SGBD</th><th>Nota ASUL</th><th>Nota DAM</th></tr>');
+                var tableBody = $('<tbody>');
+
+                $.each(studentData, function (index, student) {
+                    var tableRow = $('<tr>');
+                    var studentNumeCell = $('<td>').text(student.nume);
+                    var studentPrenumeCell = $('<td>').text(student.prenume).addClass('prenume');
+                    var studentGrupaCell = $('<td>').text(student.grupa).addClass('grupa');
+                    var studentNotaAGCell = $('<td>').text(student.notaAG).addClass('notaAG');
+                    var studentNotaSGBDCell = $('<td>').text(student.notaSGBD).addClass('notaSGBD');
+                    var studentNotaASULCell = $('<td>').text(student.notaASUL).addClass('notaASUL');
+                    var studentNotaDAMCell = $('<td>').text(student.notaDAM).addClass('notaDAM');
+
+                    tableRow.append(studentNumeCell);
+                    tableRow.append(studentPrenumeCell);
+                    tableRow.append(studentGrupaCell);
+                    tableRow.append(studentNotaAGCell);
+                    tableRow.append(studentNotaSGBDCell);
+                    tableRow.append(studentNotaASULCell);
+                    tableRow.append(studentNotaDAMCell);
+
+                    tableBody.append(tableRow);
+                });
+
+                table.append(tableHeader);
+                table.append(tableBody);
+
+                $('#studentsList').replaceWith(table);
+                $('#studentsMenu').show();
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#materiiButton').click(function () {
+                var materiiData = [
+                    { nume: 'Algoritmica Grafurilor', nrcredite: '6', formaevaluare: 'Examen'},
+                    { nume: 'Sisteme de Gestiune a Bazelor de Date', nrcredite: '6', formaevaluare: 'Examen'},
+                    { nume: 'Administrarea Sistemelor UNIX/Linux', nrcredite: '3', formaevaluare: 'Colocviu'},
+                    { nume: 'Dezvoltarea Aplicatiilor Mobile', nrcredite: '6', formaevaluare: 'Colocviu' }
+                ];
+
+                var table = $('<table>').addClass('materii-table');
+                var tableHeader = $('<thead>').append('<tr><th>Nume</th><th>Număr credite</th><th>Formă de evaluare</th></tr>');
+                var tableBody = $('<tbody>');
+
+                $.each(materiiData, function (index, materii) {
+                    var tableRow = $('<tr>');
+                    var materiiNumeCell = $('<td>').text(materii.nume);
+                    var materiiNrCrediteCell = $('<td>').text(materii.nrcredite).addClass('nrcredite');
+                    var materiiFormaEvaluareCell = $('<td>').text(materii.formaevaluare).addClass('formaevaluare');
+
+
+                    tableRow.append(materiiNumeCell);
+                    tableRow.append(materiiNrCrediteCell);
+                    tableRow.append(materiiFormaEvaluareCell);
+
+                    tableBody.append(tableRow);
+                });
+
+                table.append(tableHeader);
+                table.append(tableBody);
+
+                $('#materiiList').replaceWith(table);
+                $('#materiiMenu').show();
+            });
+        });
+    </script>
+
+}
