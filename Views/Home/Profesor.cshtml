@@ -5,6 +5,8 @@
     <div>
         <button id="studentsButton" type="button" class="btn btn-primary">Elevi</button>
         <div id="studentsMenu" style="display: none;">
+        <p></p>
+            <input id="searchInput" type="text" placeholder="Caută...">
             <table id="studentsList" class="students-table">
                 <thead>
                     <tr>
@@ -112,6 +114,19 @@
 
                 $('#studentsList').replaceWith(table);
                 $('#studentsMenu').show();
+                $('#searchInput').on('input', function () {
+                    var searchTerm = $(this).val().trim().toLowerCase();
+                    var tableRows = $('#studentsMenu tbody tr');
+
+                    tableRows.each(function () {
+                        var studentName = $(this).find('td:first-child').text().toLowerCase();
+                        if (studentName.includes(searchTerm)) {
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
+                    });
+                });
             });
         });
     </script>
