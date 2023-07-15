@@ -1,0 +1,194 @@
+﻿@{
+    ViewData["Title"] = "Elev";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevi </title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <style>
+        .tabel-semestrul {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Practica 2023 - Mandris Stefan Alexandru</h1>
+    </div>
+
+    <h1>Catalog Elevi:</h1>
+    
+
+    <div>
+        <button id="semestrul1">Semestrul 1</button>
+        <button id="semestrul2">Semestrul 2</button>
+    </div>
+
+    <div class="tabel-semestrul" id="tabel-semestrul1">
+        <h2> Note Semestrul 1</h2>
+        <table id="elevi_sem1" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th>Nume</th>
+                    <th>Prenume</th>
+                    <th>Nota Romana</th>
+                    <th>Nota Matematica</th>
+                    <th>Nota Engleza</th>
+                    <th>Nota Sport</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mandris</td>
+                    <td>Stefan Alexandru</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Neagu</td>
+                    <td>Adrian Gheorhita</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>Gheoca</td>
+                    <td>Florin</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>9</td>
+                </tr>
+
+                <tr>
+                    <td>Rusanda</td>
+                    <td>Valentin</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>9</td>
+                </tr>
+
+                <tr>
+                    <td>Dobrescu</td>
+                    <td>Alexandra</td>
+                    <td>10</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>9</td>
+                </tr>
+
+                <tr>
+                    <td>Popa</td>
+                    <td>Mircea</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>6</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="tabel-semestrul" id="tabel-semestrul2">
+        <h2> Note Semestrul 2</h2>
+        <table id="elevi_sem2" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th>Nume</th>
+                    <th>Prenume</th>
+                    <th>Nota Fizica</th>
+                    <th>Nota Chimie</th>
+                    <th>Nota Informatica</th>
+                    <th>Nota Desen</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mandris</td>
+                    <td>Stefan Alexandru</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>Neagu</td>
+                    <td>Adrian Gheorhita</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>Gheoca</td>
+                    <td>Florin</td>
+                    <td>10</td>
+                    <td>7</td>
+                    <td>10</td>
+                    <td>8</td>
+                </tr>
+
+                <tr>
+                    <td>Rusanda</td>
+                    <td>Valentin</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>9</td>
+                </tr>
+
+                <tr>
+                    <td>Dobrescu</td>
+                    <td>Alexandra</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>9</td>
+                </tr>
+
+                <tr>
+                    <td>Popa</td>
+                    <td>Mircea</td>
+                    <td>7</td>
+                    <td>6</td>
+                    <td>5</td>
+                    <td>4</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var table_sem1 = $('#elevi_sem1').DataTable();
+            var table_sem2 = $('#elevi_sem2').DataTable();
+
+            $('#semestrul1').click(function () {
+                $('.tabel-semestrul').hide();
+                $('#tabel-semestrul1').show();
+                table_sem1.columns.adjust().draw();
+            });
+
+            $('#semestrul2').click(function () {
+                $('.tabel-semestrul').hide();
+                $('#tabel-semestrul2').show();
+                table_sem2.columns.adjust().draw();
+            });
+        });
+    </script>
+</body>
+</html>
